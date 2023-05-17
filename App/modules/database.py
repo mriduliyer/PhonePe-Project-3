@@ -11,7 +11,7 @@ dbpassword = password_file.read().strip()
 password_file.close()
 
 
-mydb = mysql.connector.connect(user="exampleadmin", password=dbpassword, host="my-example-mysql1.mysql.database.azure.com", port=3306, database="customerdb", ssl_ca=file_path, ssl_disabled=False)
+mydb = mysql.connector.connect(user="exampleadmin", password=dbpassword, host="my-example-mysql1.mysql.database.azure.com", port=3306, database="pp_project_3", ssl_ca=file_path, ssl_disabled=False)
 # Connect to MySQL database
 
 cursor = mydb.cursor()
