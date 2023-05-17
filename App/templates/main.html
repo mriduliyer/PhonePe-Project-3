@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Nginx Log Viewer</title>
+	<link rel="stylesheet" type="text/css" href="static/styles/style.css">
+</head>
+
+<body>
+	<div class="container">
+		<h1>Nginx Log</h1>
+		<form action="/" method="post" enctype="multipart/form-data">
+			<label for="server-hostname">Nginx Server Hostname:</label>
+			<input type="text" id="server-hostname" name="server-hostname">
+			<label for="access-log-file">Nginx Access Log File:</label>
+			<input type="file" id="access-log-file" name="access-log-file">
+			<input type="submit" value="View Log">
+		</form>
+	</div>
+</body>
+
+</html>

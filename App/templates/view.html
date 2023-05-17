@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search for Diagrams</title>
+    <link rel="stylesheet" type="text/css" href="static/styles/listStyle.css">
+    <script src="static/scripts/viewScript.js"></script>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button onclick="search()">Search</button>
+        <button id="deleteButton" type="submit" onclick="deleteRecord()" disabled>Delete</button>
+    </div>
+    <form action="/metrics" method="GET">
+        <button id="viewMetrics" type="submit">View Metrics</button>
+    </form>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Sr. No</th>
+                <th>Server Hostname</th>
+                <th>IP Address</th>
+                <th>Timestamp</th>
+                <th>Request Method</th>
+                <th onclick="sortTable(5)">Path</th>
+                <th onclick="sortTable(6)">Status Code</th>
+                <th onclick="sortTable(7)">Response Time</th>
+                <th>Client IP Address</th>
+                <th>Request Size</th>
+                <th>TLS Version</th>
+                <th onclick="sortTable(11)">Host</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr onclick="getRowId('{{ row.index }}')">
+                <td>{{ row.index }}</td>
+                <td>{{ row.server_hostname }}</td>
+                <td>{{ row.IP_address }}</td>
+                <td>{{ row.timestamp }}</td>
+                <td>{{ row.request_method }}</td>
+                <td>{{ row.path }}</td>
+                <td>{{ row.http_status_code }}</td>
+                <td>{{ row.response_time }}</td>
+                <td>{{ row.client_ip }}</td>
+                <td>{{ row.request_size }}</td>
+                <td>{{ row.tls_version }}</td>
+                <td>{{ row.host }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Top Metrics</title>
+    <link rel="stylesheet" type="text/css" href="static/styles/metricStyleSheet.css">
+    <script src="static/scripts/metricScript.js"></script>
+</head>
+
+<body>
+    <h1>Top Metrics</h1>
+
+    <h2 id="defaultText" style="display: block;">Select a Metric</h2>
+    <div id="buttons">
+        <button onclick="updateMetricParam('byClientIP')">Requests By Client IP</button>
+        <button onclick="updateMetricParam('byHost')">Requests By Host</button>
+        <button onclick="updateMetricParam('byReqSize')">Requests By Size</button>
+        <button onclick="updateMetricParam('byHostPath')">Requests By Host & Path</button>
+        <button onclick="updateMetricParam('byRespTime')">Requests By Response Time</button>
+        <button onclick="updateMetricParam('byStatusCode')">Requests by Status Code</button>
+    </div>
+    <div id="byClientIP" class="metricTable" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Client IP</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row.row1 }}</td>
+                    <td>{{ row.row2 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div id="byHost" class="metricTable" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Host</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row.row1 }}</td>
+                    <td>{{ row.row2 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div id="byReqSize" class="metricTable" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Path</th>
+                    <th>Request Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row.row1 }}</td>
+                    <td>{{ row.row2 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div id="byHostPath" class="metricTable" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Host</th>
+                    <th>Path</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row.row1 }}</td>
+                    <td>{{ row.row2 }}</td>
+                    <td>{{ row.row3 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div id="byRespTime" class="metricTable" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Path</th>
+                    <th>Response Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row.row1 }}</td>
+                    <td>{{ row.row2 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div id="byStatusCode" class="metricTable" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Host</th>
+                    <th>Status Code</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row.row1 }}</td>
+                    <td>{{ row.row2 }}</td>
+                    <td>{{ row.row3 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
