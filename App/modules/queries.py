@@ -10,5 +10,5 @@ metric_by_IP = "SELECT client_ip, COUNT(*) AS request_count FROM nginx_logs GROU
 metric_by_host = "SELECT host, COUNT(*) AS request_count FROM nginx_logs GROUP BY host ORDER BY request_count DESC LIMIT 5;"
 metric_by_requestsize = "SELECT path, request_size FROM nginx_logs ORDER BY request_size DESC LIMIT 5;"
 metric_by_host_and_path = "SELECT host, CONCAT(SUBSTRING_INDEX(SUBSTRING_INDEX(path, '/', 2), '/', -1), '/', SUBSTRING_INDEX(path, '/', -1)) AS path_subdirectories, COUNT(*) FROM nginx_logs GROUP BY host, path ORDER BY COUNT(*) DESC LIMIT 5;"
-metric_by_responsetime = "SELECT path, response_time FROM nginx_logs GROUP BY path,response_time ORDER BY response_time LIMIT 5;"
+metric_by_responsetime = "SELECT path, response_time FROM nginx_logs GROUP BY path,response_time ORDER BY response_time DESC LIMIT 5;"
 metric_by_statuscode = "SELECT host, http_status_code, COUNT(*) FROM nginx_logs WHERE http_status_code LIKE '200%' OR http_status_code LIKE '4%' OR http_status_code LIKE '5%' GROUP BY host, http_status_code ORDER BY COUNT(*) DESC LIMIT 5;"
