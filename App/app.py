@@ -64,7 +64,7 @@ def home():
 #API to VIEW, SEARCH and DELETE log records
 @app.route('/view', methods=['GET', 'DELETE'], endpoint='view')
 def nginx_log():
-    template = env.get_template('App/templates/view.html')
+    template = env.get_template('templates/view.html')
 
     #DELETE API
     if request.method == 'DELETE':
@@ -96,7 +96,7 @@ def nginx_log():
 #GET API to VIEW METRICS
 @app.route('/metrics', methods=['GET'])
 def metrics():
-    template = env.get_template('App/templates/metrics.html')    
+    template = env.get_template('templates/metrics.html')    
     metricVal = str(request.args.get('metricParam'))
     
     if metricVal != "None" or metricVal != '':
