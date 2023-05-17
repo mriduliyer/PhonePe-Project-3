@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search for Diagrams</title>
+    <link rel="stylesheet" type="text/css" href="static/styles/listStyle.css">
+    <script src="static/scripts/viewScript.js"></script>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button onclick="search()">Search</button>
+        <button id="deleteButton" onclick="deleteRecord()" disabled>Delete</button>
+    </div>
+    <form id="viewMyMetrics">
+        <button id="viewMetrics" type="submit">View Metrics</button>
+    </form>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Sr. No</th>
+                <th>Server Hostname</th>
+                <th>IP Address</th>
+                <th>Timestamp</th>
+                <th>Request Method</th>
+                <th onclick="sortTable(5)">Path</th>
+                <th onclick="sortTable(6)">Status Code</th>
+                <th onclick="sortTable(7)">Response Time</th>
+                <th>Client IP Address</th>
+                <th>Request Size</th>
+                <th>TLS Version</th>
+                <th onclick="sortTable(11)">Host</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+</body>
+
+</html>
